@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="ResourceDictionaryName">Loc-ru-RU</sys:String>
+    <sys:String x:Key="Title">Toilet Project v3.0</sys:String>
+    <sys:String x:Key="Open">ОТКРЫТО</sys:String>
+    <sys:String x:Key="Closed">ЗАКРЫТО</sys:String>
+    <sys:String x:Key="Language">Язык</sys:String>
+    <sys:String x:Key="en-US">Английский</sys:String>
+    <sys:String x:Key="ru-RU">Русский</sys:String>
+</ResourceDictionary>
