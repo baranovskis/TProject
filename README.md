@@ -7,4 +7,4 @@ Light sensor for your bathroom?!
 * [PIR Motion Sensor (HC-SR501)](https://www.aliexpress.com/item/1874938103.html?spm=a2g0o.detail.1000023.16.32e3f8c1eM07mt)
 
 ## Docs
-[Installing the firmware](./docs/FLASH_NODEMCU)
+[Installing the firmware](./docs/FLASH_NODEMCU.md)
