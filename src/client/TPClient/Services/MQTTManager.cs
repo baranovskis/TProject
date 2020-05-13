@@ -32,8 +32,8 @@ namespace TPClient.Services
                 string clientId = Guid.NewGuid().ToString();
                 _mqttClient.Connect(clientId);
 
-                _mqttClient.Publish(Properties.Settings.Default.MQTT_PUBLISH, new byte[] { });
-                _mqttClient.Subscribe(new string[] { Properties.Settings.Default.MQTT_SUBSCRIBE }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+                _mqttClient.Publish(Properties.Settings.Default.MQTT_SUBSCRIBE, new byte[] { });
+                _mqttClient.Subscribe(new string[] { Properties.Settings.Default.MQTT_PUBLISH }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
                 return true;
             }
             catch (Exception e)
@@ -48,7 +48,11 @@ namespace TPClient.Services
         {
             Log.Instance.Debug("Stop listening signals");
 
-            _mqttClient?.Disconnect();
+            if (_mqttClient != null && _mqttClient.IsConnected)
+            {
+                _mqttClient.Disconnect();
+            }
+
             _mqttClient = null;
         }
 
