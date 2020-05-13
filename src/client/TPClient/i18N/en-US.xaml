@@ -8,4 +8,13 @@
     <sys:String x:Key="Language">Language</sys:String>
     <sys:String x:Key="en-US">English</sys:String>
     <sys:String x:Key="ru-RU">Russian</sys:String>
+    <sys:String x:Key="Exit">Exit</sys:String>
+    <sys:String x:Key="Error">Fatal error! Check log file please.</sys:String>
+    <sys:String x:Key="LightOff">Light: OFF (GO)</sys:String>
+    <sys:String x:Key="LightOn">Light: ON (STOP)</sys:String>
+    <sys:String x:Key="LightNotify">The light was off!</sys:String>
+    <sys:String x:Key="Reconnect">Connection error! Next attempt in 5 seconds ...</sys:String>
+    <sys:String x:Key="WrongFormat">The invalid data format has received!</sys:String>
+    <sys:String x:Key="NotyfyBtn">Notify if the light is turned off</sys:String>
+    <sys:String x:Key="AutoStart">Run a program automatically on startup?</sys:String>
 </ResourceDictionary>

@@ -91,33 +91,6 @@ namespace TPClient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Каталог приколов.
-        /// </summary>
-        internal static string Categories {
-            get {
-                return ResourceManager.GetString("Categories", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fatal error! Check log file please..
-        /// </summary>
-        internal static string CheckLog {
-            get {
-                return ResourceManager.GetString("CheckLog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Выйти.
-        /// </summary>
-        internal static string Exit {
-            get {
-                return ResourceManager.GetString("Exit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon icon_error {
@@ -144,42 +117,6 @@ namespace TPClient.Properties {
             get {
                 object obj = ResourceManager.GetObject("icon_on", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Посмотрите окно уведомлений!.
-        /// </summary>
-        internal static string LightError {
-            get {
-                return ResourceManager.GetString("LightError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Свет: Выключен (GO).
-        /// </summary>
-        internal static string LightOff {
-            get {
-                return ResourceManager.GetString("LightOff", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Свет: Включен (STOP).
-        /// </summary>
-        internal static string LightOn {
-            get {
-                return ResourceManager.GetString("LightOn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Запускать при включении ПК.
-        /// </summary>
-        internal static string OnStartup {
-            get {
-                return ResourceManager.GetString("OnStartup", resourceCulture);
             }
         }
     }

@@ -47,8 +47,6 @@ namespace TPClient
             _mainWindow.Left = workingArea.Right - _mainWindow.Width - 5;
             _mainWindow.Top = workingArea.Bottom - _mainWindow.Height - 5;
 
-            //_lastUpdate = new DateTime();
-
             _mqttManager = new MQTTManager(HandleSignal);
 
             _backgroundThread = new Thread(ThreadStartingPoint);
@@ -58,20 +56,10 @@ namespace TPClient
 
             var contextMenu = new ContextMenu();
 
-            var regItem = new MenuItem
-            {
-                Index = 0,
-                Checked = RegistryManager.Instance.AutoStart,
-                Text = TPClient.Properties.Resources.OnStartup
-            };
-
-            regItem.Click += regItem_Click;
-            contextMenu.MenuItems.Add(regItem);
-
             var exitItem = new MenuItem
             {
-                Index = 2,
-                Text = TPClient.Properties.Resources.Exit
+                Index = 1,
+                Text = LocalizationManager.Instance.GetKeyValue("Exit")
             };
 
             exitItem.Click += exitItem_Click;
@@ -113,7 +101,7 @@ namespace TPClient
                 Log.Instance.Fatal("Unknown fatal error!");
             }
 
-            System.Windows.Forms.MessageBox.Show(TPClient.Properties.Resources.CheckLog, AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            System.Windows.Forms.MessageBox.Show(LocalizationManager.Instance.GetKeyValue("Error"), AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         /// <summary>
@@ -169,22 +157,23 @@ namespace TPClient
             switch (state)
             {
                 case State.On:
-                    _notifyIcon.Text = TPClient.Properties.Resources.LightOn;
+                    _notifyIcon.Text = LocalizationManager.Instance.GetKeyValue("LightOn");
                     iconUri = new Uri("pack://application:,,,/Resources/icon_on.ico");
                     break;
                 case State.Off:
-                    _notifyIcon.Text = TPClient.Properties.Resources.LightOff;
+                    _notifyIcon.Text = LocalizationManager.Instance.GetKeyValue("LightOff");
 
                     _mainWindow.Dispatcher.Invoke(() =>
                     {
+                        var msg = LocalizationManager.Instance.GetKeyValue("LightNotify");
                         var viewModel = _mainWindow.DataContext as MainViewModel;
 
                         if (viewModel != null && viewModel.Notification)
                         {
                             viewModel.Notification = false;
-                            viewModel.MessageQueue.Enqueue("Свет был выключен!");
+                            viewModel.MessageQueue.Enqueue(msg);
 
-                            _notifyIcon.ShowBalloonTip(30000, "TProject Notification", "Свет был выключен!",
+                            _notifyIcon.ShowBalloonTip(30000, "TProject Notification", msg,
                                 ToolTipIcon.None);
                         }
                     });
@@ -223,8 +212,7 @@ namespace TPClient
 
                     _mainWindow.Dispatcher.Invoke(() =>
                     {
-                        var msg = "Ошибка соединения! Следующая попытка через 5 секунд...";
-
+                        var msg = LocalizationManager.Instance.GetKeyValue("Reconnect");
                         var viewModel = _mainWindow.DataContext as MainViewModel;
 
                         if (viewModel != null)
@@ -262,7 +250,7 @@ namespace TPClient
 
                     if (viewModel != null)
                     {
-                        viewModel.MessageQueue.Enqueue("Получен неверный формат данных!");
+                        viewModel.MessageQueue.Enqueue(LocalizationManager.Instance.GetKeyValue("WrongFormat"));
                     }
                 });
 
@@ -270,7 +258,6 @@ namespace TPClient
             }
 
             var state = signal.SensorStatus ? State.On : State.Off;
-            //_lastUpdate = DateTime.Now;
 
             Dispatcher.Invoke(() =>
             {
@@ -280,8 +267,6 @@ namespace TPClient
                 {
                     viewModel.Status = signal.SensorStatus;
                 }
-
-                //_mainWindow.SetMessage("Последнее обновление: " + _lastUpdate.ToString("dd.MM.yyyy H:mm:ss"), MsgType.Done);
             });
 
             SetNotifyIcon(state);

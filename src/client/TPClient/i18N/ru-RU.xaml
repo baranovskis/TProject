@@ -8,4 +8,13 @@
     <sys:String x:Key="Language">Язык</sys:String>
     <sys:String x:Key="en-US">Английский</sys:String>
     <sys:String x:Key="ru-RU">Русский</sys:String>
+    <sys:String x:Key="Exit">Выйти</sys:String>
+    <sys:String x:Key="Error">Фатальная ошибка! Проверьте лог файл.</sys:String>
+    <sys:String x:Key="LightOff">Свет: Выключен (GO)</sys:String>
+    <sys:String x:Key="LightOn">Свет: Включен (STOP)</sys:String>
+    <sys:String x:Key="LightNotify">Свет был выключен!</sys:String>
+    <sys:String x:Key="Reconnect">Ошибка соединения! Следующая попытка через 5 секунд...</sys:String>
+    <sys:String x:Key="WrongFormat">Получен неверный формат данных!</sys:String>
+    <sys:String x:Key="NotyfyBtn">Уведомить, если свет будет выключен</sys:String>
+    <sys:String x:Key="AutoStart">Запустить программу автоматически при запуске системы?</sys:String>
 </ResourceDictionary>

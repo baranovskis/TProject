@@ -62,13 +62,6 @@ namespace TPClient.APIs
                 url += $"?CType={categoryId}";
             }
 
-            /*var client = new RestClient
-            {
-                Encoding = Encoding.GetEncoding("Windows-1251")
-            };
-            var request = new RestRequest(url);
-            var response = client.Execute(request);*/
-
             try
             {
                 var reqGET = WebRequest.Create(url);
